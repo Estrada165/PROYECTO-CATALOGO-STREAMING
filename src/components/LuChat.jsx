@@ -19,7 +19,7 @@ function parse(text) {
   const items = []; let m
   MARK.lastIndex = 0
   while ((m = MARK.exec(text))) items.push(m[1] ? { kind: m[1].toLowerCase(), id: m[2] } : m[4] ? { kind: 'img', id: m[4] } : { kind: m[3].toLowerCase() })
-  const clean = text.replace(MARK, '').replace(/[ \t]+([.,!?;:])/g, '$1').replace(/\*\*(.+?)\*\*/g, '$1').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim()
+  const clean = text.replace(MARK, '').replace(/[ \t]+([.,!?;:])/g, '$1').replace(/\*\*(.+?)\*\*/g, '$1').replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim()
   const seen = new Set()
   return { clean, items: items.filter(x => { const k = x.kind + (x.id || ''); if (seen.has(k)) return false; seen.add(k); return true }) }
 }
@@ -30,6 +30,11 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
   const [msgs, setMsgs] = useState(() => { try { return JSON.parse(session.get(`cs-lu:${slug}`) || '[]') } catch { return [] } })
   const [text, setText] = useState('')
   const [busy, setBusy] = useState(false)
+  // Cupo diario por visitante (lo decide el servidor; aquí solo se muestra)
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Lima' }).format(new Date())
+  const [quota, setQuota] = useState(() => { const q = store.get(`cs-lu-quota:${slug}`); return q?.day === today ? q : null })
+  useEffect(() => { if (quota) store.set(`cs-lu-quota:${slug}`, quota) }, [quota, slug])
+  const blocked = quota?.blocked && quota.day === today
   const list = useRef(null), input = useRef(null)
   const name = bot?.name || 'Lu'
   const greeting = bot?.greeting || `¡Hola! Soy ${name} 👋 Te ayudo a elegir tu plataforma, armar un combo o resolver dudas de pago.`
@@ -59,7 +64,7 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
 
   const send = async t => {
     const q = (t ?? text).trim()
-    if (!q || busy) return
+    if (!q || busy || blocked) return
     const next = [...msgs, { role: 'user', text: q }]
     setMsgs(next); setText(''); setBusy(true)
     try {
@@ -67,6 +72,8 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
       const { data, error } = await sb.functions.invoke('lu', { body: { slug, visitor: visitorId(), messages: next.map(m => ({ role: m.role, text: m.text })) } })
       if (error) throw error
       setMsgs(m => [...m, { role: 'model', text: data?.reply || data?.error || 'No pude responder ahora.', web: !!data?.web, sources: data?.sources || [] }])
+      if (data?.limited === 'visitor') setQuota({ day: today, blocked: true })
+      else if (typeof data?.left === 'number') setQuota({ day: today, left: data.left })
     } catch {
       setMsgs(m => [...m, { role: 'model', text: 'No me pude conectar. Revisa tu internet o escríbenos por WhatsApp. [[whatsapp]]', err: true }])
     } finally { setBusy(false) }
@@ -137,6 +144,15 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
               <div key={i} className="lu-msg is-bot">
                 {clean && <p>{clean}</p>}
                 {items.length > 0 && <div className="lu-att">{items.map(attach)}</div>}
+                {(() => {
+                  // Si recomienda varias, se agregan todas de un toque
+                  const ps = items.filter(it => it.kind === 'p').map(it => idx.byId[it.id]).filter(p => p && p.pricing_mode !== 'consult' && p.stock !== 'out' && priceFor(p, optionId) != null)
+                  return ps.length > 1 && (
+                    <button className="key key--accent key--sm lu-act" onClick={e => { const el = e.currentTarget; ps.forEach((p, k) => setTimeout(() => onAdd(p, el), k * 180)) }}>
+                      <Plus size={15} /> Agregar las {ps.length} al carrito
+                    </button>
+                  )
+                })()}
                 {m.web && (
                   <div className="lu-web">
                     <b>Dato tomado de internet</b>
@@ -149,10 +165,19 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
           })}
           {busy && <div className="lu-msg is-bot is-typing" aria-label={`${name} está escribiendo`}><span /><span /><span /></div>}
         </div>
+        {blocked ? (
+          <div className="lu-limit">
+            <b>Llegaste al límite de mensajes de hoy</b>
+            <span>Puedes volver a escribirle a {name} mañana. Si te urge, te atendemos por WhatsApp.</span>
+            {waHref && <a className="key key--wa key--sm" href={waFor()} target="_blank" rel="noopener noreferrer"><MessageCircle size={15} /> Escribir por WhatsApp</a>}
+          </div>
+        ) : quota?.left != null && quota.left <= 3 && (
+          <div className="lu-left">Te {quota.left === 1 ? 'queda 1 mensaje' : `quedan ${quota.left} mensajes`} con {name} hoy.</div>
+        )}
         <form className="lu__input" onSubmit={e => { e.preventDefault(); send() }}>
-          <textarea ref={input} rows={1} value={text} maxLength={500} placeholder={`Escríbele a ${name}…`} aria-label="Tu mensaje"
+          <textarea ref={input} rows={1} value={text} maxLength={500} disabled={blocked} placeholder={blocked ? 'Vuelve mañana para seguir conversando' : `Escríbele a ${name}…`} aria-label="Tu mensaje"
             onChange={e => setText(e.target.value)} onKeyDown={e => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); send() } }} enterKeyHint="send" />
-          <button className="key key--accent key--icon" disabled={!text.trim() || busy} aria-label="Enviar"><Send size={17} /></button>
+          <button className="key key--accent key--icon" disabled={!text.trim() || busy || blocked} aria-label="Enviar"><Send size={17} /></button>
         </form>
       </section>
       {zoom && (
