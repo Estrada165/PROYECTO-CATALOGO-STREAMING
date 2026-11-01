@@ -505,7 +505,7 @@ function Catalog({ cat, slug, preview = false, previewTheme }) {
         ))}
       </Sheet>
       <LuChat cat={cat} slug={slug} idx={idx} optionId={optionId} sym={sym} hidden={cartOpen || preview} forceClose={cartOpen}
-        onAdd={(p, el) => { addPlatform(p, el); toast(`${p.name} en tu carrito`) }} onAddCombo={addCombo} onOpenCart={() => setCartOpen(true)}
+        onAdd={(p, el, opt) => { addPlatform(p, el, opt === undefined ? optionId : opt); toast(`${p.name} en tu carrito`) }} onAddCombo={addCombo} onOpenCart={() => setCartOpen(true)} onOpen={setDetail}
         waHref={s.whatsapp ? waLink(s.whatsapp, 'Hola 👋 Vengo del catálogo y tengo una consulta.') : null} waNumber={s.whatsapp} />
       {toastMsg && <div className="toast" role="status"><Check size={16} />{toastMsg}</div>}
     </>

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
-import { X, Send, Plus, ShoppingBag, MessageCircle, Sparkles, RotateCcw } from 'lucide-react'
+import { X, Send, Plus, ShoppingBag, MessageCircle, Sparkles, RotateCcw, ChevronRight } from 'lucide-react'
 import { getSupabase } from '../lib/supabase'
 import { priceFor } from '../lib/catalog'
 import { money, store, session } from '../lib/format'
@@ -24,7 +24,7 @@ function parse(text) {
   return { clean, items: items.filter(x => { const k = x.kind + (x.id || ''); if (seen.has(k)) return false; seen.add(k); return true }) }
 }
 
-export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddCombo, onOpenCart, waHref, waNumber, hidden, forceClose }) {
+export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddCombo, onOpenCart, onOpen, waHref, waNumber, hidden, forceClose }) {
   const bot = cat.bot
   const [open, setOpen] = useState(false)
   const [msgs, setMsgs] = useState(() => { try { return JSON.parse(session.get(`cs-lu:${slug}`) || '[]') } catch { return [] } })
@@ -55,7 +55,7 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
   useEffect(() => {
     document.documentElement.classList.toggle('lu-open', open)
     if (open) setTimeout(() => input.current?.focus(), 250)
-    const esc = e => { if (e.key === 'Escape') setOpen(false) }
+    const esc = e => { if (e.key === 'Escape' && !document.querySelector('.sheet-root')) setOpen(false) } // si hay un detalle abierto, Escape solo cierra el detalle
     if (open) addEventListener('keydown', esc)
     return () => removeEventListener('keydown', esc)
   }, [open])
@@ -89,12 +89,25 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
   const attach = it => {
     if (it.kind === 'p') {
       const p = idx.byId[it.id]; if (!p) return null
-      const price = priceFor(p, optionId)
+      // Todas las duraciones de la plataforma, sin depender de la pestaña elegida en el catálogo
+      const rows = p.pricing_mode === 'options'
+        ? idx.options.filter(o => priceFor(p, o.id) != null).map(o => ({ id: o.id, label: `${o.label} · ${o.period}`, price: priceFor(p, o.id) }))
+        : p.pricing_mode === 'fixed' ? [{ id: null, label: 'Pago único', price: priceFor(p, null) }] : []
+      const out = p.stock === 'out'
       return (
-        <div className="lu-card" key={`p${it.id}`}>
-          <img src={p.logo_url} alt="" width="40" height="40" />
-          <div><b>{p.name}</b><small className="tnum">{p.pricing_mode === 'consult' ? 'Precio a consultar' : price != null ? money(price, sym) : 'No disponible en esta duración'}</small></div>
-          {p.pricing_mode !== 'consult' && price != null && p.stock !== 'out' && <button className="key key--accent key--sm" onClick={e => onAdd(p, e.currentTarget)} aria-label={`Agregar ${p.name}`}><Plus size={15} /></button>}
+        <div className="lu-card lu-card--p" key={`p${it.id}`}>
+          <button className="lu-card__head" onClick={() => onOpen(p)} aria-label={`Ver detalles de ${p.name}`}>
+            <img src={p.logo_url} alt="" width="40" height="40" />
+            <span><b>{p.name}</b><small>{out ? 'Agotado por ahora' : 'Ver detalles'} <ChevronRight size={12} /></small></span>
+          </button>
+          {p.pricing_mode === 'consult' ? (
+            <div className="lu-opt"><span>Precio según disponibilidad</span>{waHref && <a className="key key--sm key--wa" href={waFor()} target="_blank" rel="noopener noreferrer"><MessageCircle size={14} /> Consultar</a>}</div>
+          ) : rows.map(o => (
+            <div className="lu-opt" key={o.id || 'u'}>
+              <span>{o.label}</span><b className="tnum">{money(o.price, sym)}</b>
+              <button className="key key--accent key--sm" disabled={out} onClick={e => onAdd(p, e.currentTarget, o.id)} aria-label={`Agregar ${p.name}, ${o.label}`}><Plus size={15} /></button>
+            </div>
+          ))}
         </div>
       )
     }
@@ -146,9 +159,10 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
                 {items.length > 0 && <div className="lu-att">{items.map(attach)}</div>}
                 {(() => {
                   // Si recomienda varias, se agregan todas de un toque
-                  const ps = items.filter(it => it.kind === 'p').map(it => idx.byId[it.id]).filter(p => p && p.pricing_mode !== 'consult' && p.stock !== 'out' && priceFor(p, optionId) != null)
+                  const optFor = p => p.pricing_mode !== 'options' ? null : priceFor(p, optionId) != null ? optionId : idx.options.find(o => priceFor(p, o.id) != null)?.id
+                  const ps = items.filter(it => it.kind === 'p').map(it => idx.byId[it.id]).filter(p => p && p.pricing_mode !== 'consult' && p.stock !== 'out' && (p.pricing_mode === 'fixed' || optFor(p)))
                   return ps.length > 1 && (
-                    <button className="key key--accent key--sm lu-act" onClick={e => { const el = e.currentTarget; ps.forEach((p, k) => setTimeout(() => onAdd(p, el), k * 180)) }}>
+                    <button className="key key--accent key--sm lu-act" onClick={e => { const el = e.currentTarget; ps.forEach((p, k) => setTimeout(() => onAdd(p, el, optFor(p)), k * 180)) }}>
                       <Plus size={15} /> Agregar las {ps.length} al carrito
                     </button>
                   )
