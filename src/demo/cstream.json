@@ -1,0 +1,1708 @@
+{
+    "bot": {
+        "name": "Lu",
+        "enabled": true,
+        "greeting": "¡Hola! Soy Lu, tu asesora en C-Stream.",
+        "avatar_url": null
+    },
+    "faqs": [
+        {
+            "a": "Un perfil es un acceso individual dentro de una cuenta compartida. Funciona en 1 dispositivo. Es la opción más económica y perfecta para uso personal.",
+            "q": "¿Qué es un acceso por perfil?"
+        },
+        {
+            "a": "Incluye el correo y la contraseña de acceso. Tienes control total: ingresa desde cualquier dispositivo y gestiona la cuenta. Ideal si necesitas más flexibilidad.",
+            "q": "¿Qué es una cuenta completa?"
+        },
+        {
+            "a": "Entre 5 y 15 minutos tras confirmar tu pago. Atendemos todos los días del año. En hora de alta demanda puede tomar un poco más, pero siempre avisamos.",
+            "q": "¿Cuánto tarda la entrega?"
+        },
+        {
+            "a": "Pérdida de acceso sin causa del cliente, cuenta caída o perfil eliminado. No cubre cambios realizados por el cliente, como cambiar la contraseña o compartir las credenciales.",
+            "q": "¿Qué cubre la garantía de 30 días?"
+        },
+        {
+            "a": "Aceptamos YAPE, BCP, PLIN, LEMON y Binance. En el checkout verás el QR y los datos de cada método. Realizas el pago, adjuntas el comprobante en WhatsApp y procesamos tu pedido.",
+            "q": "¿Cómo pago?"
+        },
+        {
+            "a": "Sí. Agrega todas las que quieras al carrito y paga en un solo pedido. Además, en la sección Combos tienes paquetes con precio especial.",
+            "q": "¿Puedo combinar varias plataformas?"
+        },
+        {
+            "a": "Sí. Necesitas un correo Gmail nuevo. Te enviamos una invitación al grupo familiar, válida 30 días. Puedes renovar con el mismo correo hasta 2 veces; del 3er mes en adelante se necesita un correo nuevo.",
+            "q": "¿YouTube Premium funciona diferente?"
+        }
+    ],
+    "slug": "cstream",
+    "state": "ok",
+    "combos": [
+        {
+            "id": "8617ece4-6ede-5b01-83c1-2c8432103c1d",
+            "name": "Dúo Entretenimiento",
+            "badge": "Más popular",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Lo esencial para series y música en un solo combo",
+            "custom_price": 19.0,
+            "platform_ids": [
+                "141395ac-8c40-5268-aff0-537827f20186",
+                "0cca1b76-c8c8-51fe-8184-981d35f90ea5"
+            ]
+        },
+        {
+            "id": "fc085933-5b9e-5fb0-92f5-fa5df0a33576",
+            "name": "Dúo Streaming",
+            "badge": "Ideal para familia",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Netflix y Disney+ para toda la familia",
+            "custom_price": 17.0,
+            "platform_ids": [
+                "141395ac-8c40-5268-aff0-537827f20186",
+                "bf586ecc-45a3-549e-a50b-cb8632c0d85f"
+            ]
+        },
+        {
+            "id": "217fa0f8-2d8c-50da-87cb-0bd75014c928",
+            "name": "Dúo Premium",
+            "badge": "Top calidad",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Las dos plataformas con mejor contenido original",
+            "custom_price": 16.5,
+            "platform_ids": [
+                "141395ac-8c40-5268-aff0-537827f20186",
+                "7e625404-2abc-5dff-bdd6-91b70cb937be"
+            ]
+        },
+        {
+            "id": "646e0786-df67-5b90-8a5b-34affc6692dd",
+            "name": "Trío Esencial",
+            "badge": "Mejor valor",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Series, películas y música — todo cubierto",
+            "custom_price": 23.5,
+            "platform_ids": [
+                "141395ac-8c40-5268-aff0-537827f20186",
+                "7e625404-2abc-5dff-bdd6-91b70cb937be",
+                "0cca1b76-c8c8-51fe-8184-981d35f90ea5"
+            ]
+        },
+        {
+            "id": "e67e4a1c-2721-5ea1-8f8e-1c975de5d64f",
+            "name": "Trío Completo",
+            "badge": "Recomendado",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "El combo perfecto para no perderte nada",
+            "custom_price": 24.0,
+            "platform_ids": [
+                "141395ac-8c40-5268-aff0-537827f20186",
+                "bf586ecc-45a3-549e-a50b-cb8632c0d85f",
+                "0cca1b76-c8c8-51fe-8184-981d35f90ea5"
+            ]
+        },
+        {
+            "id": "2514fb4c-f116-5557-9bd1-fdcae52c0732",
+            "name": "Trío Anime + Música",
+            "badge": "Para fans del anime",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Para los fanáticos del anime con música de fondo",
+            "custom_price": 16.0,
+            "platform_ids": [
+                "fee73780-1ad6-50a9-b987-2e27e94ed2b8",
+                "0998c702-bb88-52cb-86ee-2270be97db5f",
+                "0cca1b76-c8c8-51fe-8184-981d35f90ea5"
+            ]
+        },
+        {
+            "id": "c407621f-f3b5-5723-a457-5a38e1c0ced1",
+            "name": "Dúo K-Drama + Música",
+            "badge": "Para fans del K-drama",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Doramas y música coreana en un combo",
+            "custom_price": 15.0,
+            "platform_ids": [
+                "0a4f295e-e0cd-5261-a284-4b756409fb69",
+                "0cca1b76-c8c8-51fe-8184-981d35f90ea5"
+            ]
+        },
+        {
+            "id": "6d89faf4-f76a-5512-9fd2-42c6ae382ef1",
+            "name": "Dúo Deportes",
+            "badge": "Para fanáticos del fútbol",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Fútbol peruano y canales deportivos todo el mes",
+            "custom_price": 35.0,
+            "platform_ids": [
+                "e893bd8d-a526-5753-b82b-11fd3b5e301d",
+                "278a2f63-4280-5b1a-86bb-b4380d62bb1b"
+            ]
+        },
+        {
+            "id": "b505aff8-aa89-5b82-804b-561ab08924bc",
+            "name": "Dúo Productividad IA",
+            "badge": "Para creadores",
+            "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "description": "Las dos herramientas de IA más usadas",
+            "custom_price": 8.0,
+            "platform_ids": [
+                "306c8d03-10ba-5e61-b2ff-ba4590f98137",
+                "c93a449b-2a78-509b-a6de-79cabf1c036e"
+            ]
+        }
+    ],
+    "options": [
+        {
+            "id": "a5723511-43c6-54a8-a7a8-b796e84d94ff",
+            "days": 30,
+            "label": "Perfil",
+            "period": "1 mes",
+            "is_default": true,
+            "access_type": "profile"
+        },
+        {
+            "id": "d10be792-60c6-5b33-b831-76a6eb164162",
+            "days": 90,
+            "label": "Perfil",
+            "period": "3 meses",
+            "is_default": false,
+            "access_type": "profile"
+        },
+        {
+            "id": "1b7646f6-6122-53bd-9193-4f7dd18c9585",
+            "days": 30,
+            "label": "Cuenta completa",
+            "period": "1 mes",
+            "is_default": false,
+            "access_type": "complete"
+        }
+    ],
+    "settings": {
+        "terms": [
+            {
+                "items": [
+                    "Todos nuestros servicios incluyen garantía de 30 días desde la activación.",
+                    "Cubre: Pérdida de acceso sin causa del cliente",
+                    "Cubre: Cuenta caída o bloqueada por el proveedor",
+                    "Cubre: Perfil eliminado sin intervención del cliente",
+                    "Cubre: Problemas de activación desde el inicio"
+                ],
+                "title": "Garantía de 30 días"
+            },
+            {
+                "items": [
+                    "Cambio de contraseña realizado por el cliente",
+                    "Compartir credenciales con terceros no autorizados",
+                    "Uso en más dispositivos de los permitidos",
+                    "Cierre de sesión forzado por mal uso",
+                    "Modificaciones a la configuración de la cuenta"
+                ],
+                "title": "La garantía no cubre"
+            },
+            {
+                "items": [
+                    "Contactar por WhatsApp con captura de pantalla del problema. Respondemos en minutos.",
+                    "Reposición del servicio — no se realizan devoluciones de dinero"
+                ],
+                "title": "Cómo reclamar"
+            },
+            {
+                "items": [
+                    "Usar en 1 dispositivo activo a la vez",
+                    "No cambiar el nombre del perfil asignado",
+                    "No modificar la configuración de la cuenta principal",
+                    "No cerrar sesión de otros dispositivos",
+                    "No intentar acceder a la configuración de la cuenta"
+                ],
+                "title": "Reglas para acceso por perfil"
+            },
+            {
+                "items": [
+                    "No cambiar el correo electrónico de la cuenta",
+                    "No activar verificación en dos pasos",
+                    "No vincular métodos de pago propios",
+                    "No cambiar la contraseña sin coordinación previa",
+                    "No compartir las credenciales con terceros"
+                ],
+                "title": "Reglas para cuenta completa"
+            },
+            {
+                "items": [
+                    "Normal: 5 a 15 minutos",
+                    "Hora punta (8:00 PM — 11:00 PM): 15 a 30 minutos",
+                    "En horario de alta demanda puede haber una pequeña espera. Siempre avisamos si hay demora."
+                ],
+                "title": "Entregas"
+            },
+            {
+                "items": [
+                    "No se realizan devoluciones de dinero.",
+                    "En caso de problema cubierto por garantía, se repone el servicio sin costo adicional."
+                ],
+                "title": "Devoluciones"
+            }
+        ],
+        "accent": "#FF6B35",
+        "radius": 18,
+        "tagline": "Tu entretenimiento, sin complicaciones",
+        "location": "Perú",
+        "logo_url": "/demo/cstream/logo.webp",
+        "whatsapp": "51904670421",
+        "font_body": "plus-jakarta",
+        "card_style": "tecla",
+        "font_cards": "plus-jakarta",
+        "help_texts": {},
+        "how_to_buy": [
+            {
+                "text": "Busca, filtra por categoría y elige el tipo de acceso que necesitas.",
+                "title": "Explora el catálogo"
+            },
+            {
+                "text": "Suma todas las que quieras y revisa tu pedido antes de pagar.",
+                "title": "Agrega al carrito"
+            },
+            {
+                "text": "YAPE, PLIN, LEMON, BCP o Binance. Los QR están en el checkout.",
+                "title": "Realiza el pago"
+            },
+            {
+                "text": "Te enviamos tus datos por WhatsApp en 5 a 15 minutos.",
+                "title": "Recibe tu acceso"
+            }
+        ],
+        "logo_shape": "squircle",
+        "description": "Catálogo oficial de servicios digitales premium. Streaming, música, herramientas y más — al mejor precio, con garantía y soporte real.",
+        "favicon_url": null,
+        "font_display": "bricolage",
+        "business_name": "C-Stream",
+        "delivery_time": "5 a 15 minutos",
+        "support_hours": "24 horas, 7 días a la semana",
+        "theme_default": "light",
+        "warranty_days": 30,
+        "currency_symbol": "S/",
+        "show_how_to_buy": true,
+        "whatsapp_display": "+51 904 670 421",
+        "discounts_enabled": false,
+        "wa_order_template": "Hola, {saludo} 👋 Soy {nombre}.\n\n🛒 *Mi pedido*\n{items}\n\n{descuento}💰 *Total: {total}*\n💳 Pago con: {metodo}\n\n📎 Te envío mi comprobante."
+    },
+    "platforms": [
+        {
+            "id": "141395ac-8c40-5268-aff0-537827f20186",
+            "name": "Netflix",
+            "tags": [
+                "series",
+                "peliculas",
+                "documentales",
+                "originales",
+                "familiar",
+                "accion",
+                "drama",
+                "comedia"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 12.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 34.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Catálogo completo Netflix",
+                "Series y películas originales",
+                "Disponible en Smart TV, celular, PC y tablet"
+            ],
+            "logo_url": "/library/netflix.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Catálogo completo Netflix. Series y películas originales.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez",
+                "No se puede cambiar la contraseña",
+                "No se puede modificar el perfil principal",
+                "No cerrar sesión de otros dispositivos"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Stranger Things",
+                "The Crown",
+                "Squid Game",
+                "Wednesday",
+                "Narcos",
+                "La Casa de Papel",
+                "Bridgerton"
+            ]
+        },
+        {
+            "id": "f593ba17-c6ec-5797-9ee2-67fda50dbd2d",
+            "name": "Amazon Prime Video",
+            "tags": [
+                "series",
+                "peliculas",
+                "originales",
+                "accion",
+                "ciencia ficcion"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 4.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 10.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Incluye bot de códigos",
+                    "price": 12.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Catálogo completo de Prime Video",
+                "Series y películas originales Amazon",
+                "Disponible en múltiples dispositivos"
+            ],
+            "logo_url": "/library/amazon.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Catálogo completo de Prime Video. Series y películas originales Amazon.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez",
+                "No modificar configuración de la cuenta"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "The Boys",
+                "Rings of Power",
+                "Reacher",
+                "Jack Ryan",
+                "El Señor de los Anillos"
+            ]
+        },
+        {
+            "id": "7e625404-2abc-5dff-bdd6-91b70cb937be",
+            "name": "HBO Max — Platino",
+            "tags": [
+                "series",
+                "peliculas",
+                "drama",
+                "thriller",
+                "adultos",
+                "premium"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 5.5,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 15.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas plan Platino",
+                    "price": 15.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Plan Platino — máxima calidad",
+                "Contenido 4K y descargas",
+                "Series HBO originales y películas Warner"
+            ],
+            "logo_url": "/library/hbo.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Plan Platino — máxima calidad. Contenido 4K y descargas.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez",
+                "No modificar configuración del perfil"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Game of Thrones",
+                "The Last of Us",
+                "Succession",
+                "House of the Dragon",
+                "Euphoria",
+                "True Detective"
+            ]
+        },
+        {
+            "id": "bf586ecc-45a3-549e-a50b-cb8632c0d85f",
+            "name": "Disney+ con ESPN",
+            "tags": [
+                "familiar",
+                "animacion",
+                "marvel",
+                "star wars",
+                "deportes",
+                "espn",
+                "pixar"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 6.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 16.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Incluye bot de códigos",
+                    "price": 31.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Disney+ completo con acceso a ESPN y Star+",
+                "Contenido Marvel, Star Wars, Pixar y National Geographic",
+                "Deportes en vivo por ESPN"
+            ],
+            "logo_url": "/library/disney.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Disney+ completo con acceso a ESPN y Star+. Contenido Marvel, Star Wars, Pixar y National Geographic.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez",
+                "No modificar configuración de la cuenta"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "The Mandalorian",
+                "WandaVision",
+                "Loki",
+                "Encanto",
+                "Avatar",
+                "Star Wars"
+            ]
+        },
+        {
+            "id": "9183baf1-c69f-5fef-a290-7e0afe48ddd0",
+            "name": "Apple TV+",
+            "tags": [
+                "series",
+                "peliculas",
+                "originales",
+                "drama",
+                "ciencia ficcion"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 6.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 16.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales Apple TV+ completas",
+                    "price": 12.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Contenido 100% original Apple",
+                "Series y películas exclusivas",
+                "Alta calidad de producción"
+            ],
+            "logo_url": "/library/appletv.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Contenido 100% original Apple. Series y películas exclusivas.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez",
+                "No modificar la cuenta Apple"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Ted Lasso",
+                "Severance",
+                "The Morning Show",
+                "Shrinking",
+                "Foundation"
+            ]
+        },
+        {
+            "id": "4a912ac6-4865-5315-83eb-975dca9db150",
+            "name": "ViX Premium",
+            "tags": [
+                "español",
+                "deportes",
+                "telenovelas",
+                "peliculas",
+                "futbol"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 3.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 7.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas",
+                    "price": 7.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Contenido 100% en español",
+                "Deportes en vivo",
+                "Películas y series latinas"
+            ],
+            "logo_url": "/library/vix.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Contenido 100% en español. Deportes en vivo.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Fútbol en vivo",
+                "Telenovelas",
+                "Películas latinas",
+                "Series originales"
+            ]
+        },
+        {
+            "id": "fee73780-1ad6-50a9-b987-2e27e94ed2b8",
+            "name": "YouTube Premium + YT Music",
+            "tags": [
+                "youtube",
+                "musica",
+                "sin anuncios",
+                "videos",
+                "descargas"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 7.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 12.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "YouTube sin anuncios",
+                "YouTube Music incluido",
+                "Reproducción en segundo plano",
+                "Descargas para ver sin internet"
+            ],
+            "logo_url": "/library/youtube.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "YouTube sin anuncios. YouTube Music incluido.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Requiere correo Gmail nuevo para activar",
+                "Máximo 2 renovaciones con el mismo correo",
+                "El 3er mes en adelante necesita correo nuevo"
+            ],
+            "extra_sections": [
+                {
+                    "kind": "steps",
+                    "items": [
+                        "Crea un correo Gmail nuevo (que no hayas usado antes)",
+                        "Compártenos ese correo por WhatsApp",
+                        "Te enviamos una invitación al grupo familiar",
+                        "Aceptas la invitación — activo en minutos",
+                        "Disfruta YouTube sin anuncios + YouTube Music"
+                    ],
+                    "title": "Cómo se activa"
+                },
+                {
+                    "kind": "list",
+                    "items": [
+                        "Mes 1 → mismo correo (1er grupo familiar)",
+                        "Mes 2 → mismo correo (2do grupo familiar — debes salir del anterior primero)",
+                        "Mes 3 en adelante → necesitas un correo Gmail nuevo"
+                    ],
+                    "title": "¿Puedo renovar con el mismo correo?"
+                },
+                {
+                    "kind": "note",
+                    "items": [
+                        "Si quieres el 3er mes con el mismo correo, no será posible. Se necesita correo nuevo."
+                    ],
+                    "title": "Importante"
+                }
+            ],
+            "popular_content": [
+                "YouTube sin anuncios",
+                "Podcasts",
+                "Música sin límites"
+            ]
+        },
+        {
+            "id": "36baff3d-9a2c-56cb-a164-b530eeda62c8",
+            "name": "Paramount+",
+            "tags": [
+                "series",
+                "peliculas",
+                "deportes",
+                "noticias",
+                "MTV"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 5.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 12.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas",
+                    "price": 15.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Series y películas Paramount",
+                "Contenido CBS, MTV, Nickelodeon",
+                "Eventos deportivos en vivo"
+            ],
+            "logo_url": "/library/paramount.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Series y películas Paramount. Contenido CBS, MTV, Nickelodeon.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Yellowstone",
+                "1883",
+                "Star Trek",
+                "iCarly",
+                "Evil"
+            ]
+        },
+        {
+            "id": "0998c702-bb88-52cb-86ee-2270be97db5f",
+            "name": "Crunchyroll",
+            "tags": [
+                "anime",
+                "manga",
+                "japonés",
+                "simulcast",
+                "subtitulos"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 3.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 7.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas",
+                    "price": 12.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Catálogo completo de anime",
+                "Simulcast — episodios al mismo tiempo que Japón",
+                "Subtítulos en español latino",
+                "Sin anuncios"
+            ],
+            "logo_url": "/library/crunchyroll.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Catálogo completo de anime. Simulcast — episodios al mismo tiempo que Japón.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "One Piece",
+                "Naruto",
+                "Attack on Titan",
+                "Demon Slayer",
+                "Jujutsu Kaisen",
+                "Dragon Ball"
+            ]
+        },
+        {
+            "id": "ae832262-1be4-538d-9135-5a3e77679879",
+            "name": "Universal+",
+            "tags": [
+                "peliculas",
+                "series",
+                "universal",
+                "syfy",
+                "e-entertainment"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 6.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 16.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Catálogo Universal Pictures",
+                "Contenido SyFy y E! Entertainment",
+                "Películas y series exclusivas"
+            ],
+            "logo_url": "/library/universal.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Catálogo Universal Pictures. Contenido SyFy y E! Entertainment.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Fast & Furious",
+                "Jurassic World",
+                "Downton Abbey",
+                "Suits"
+            ]
+        },
+        {
+            "id": "686874cc-74b6-5483-8be1-f1ae0418c8fc",
+            "name": "Flujo TV",
+            "tags": [
+                "canales",
+                "tv en vivo",
+                "deportes",
+                "noticias",
+                "latino"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 10.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 27.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas",
+                    "price": 15.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Canales en vivo nacionales e internacionales",
+                "Contenido on-demand",
+                "Deportes y noticias en tiempo real"
+            ],
+            "logo_url": "/library/flujo.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Canales en vivo nacionales e internacionales. Contenido on-demand.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Canales deportivos",
+                "Noticias 24h",
+                "Entretenimiento en vivo"
+            ]
+        },
+        {
+            "id": "e893bd8d-a526-5753-b82b-11fd3b5e301d",
+            "name": "DirecTV Go Exclusivo",
+            "tags": [
+                "canales",
+                "deportes",
+                "tv en vivo",
+                "liga max",
+                "exclusivo"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Perfil exclusivo — solo para Smart TV",
+                    "price": 18.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Perfil exclusivo — solo para Smart TV",
+                    "price": 51.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Cuenta con 4 perfiles propios",
+                    "price": 33.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Acceso exclusivo — perfil solo para ti",
+                "Canales premium + Liga Max",
+                "Activación en Smart TV",
+                "4 perfiles disponibles en cuenta completa"
+            ],
+            "logo_url": "/library/directv.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Acceso exclusivo — perfil solo para ti. Canales premium + Liga Max.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Solo funciona en Smart TV",
+                "Perfil exclusivo — no compartido"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Liga Max",
+                "Deportes internacionales",
+                "Canales premium"
+            ]
+        },
+        {
+            "id": "6764687b-daa9-569d-9ea4-e183c04aa547",
+            "name": "DirecTV Go no Exclusivo",
+            "tags": [
+                "canales",
+                "deportes",
+                "tv en vivo",
+                "compartido"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Perfil compartido con 3 personas más",
+                    "price": 11.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Perfil compartido con 3 personas más",
+                    "price": 30.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Perfil compartido con hasta 3 personas más",
+                "Acceso al catálogo de canales disponibles",
+                "Opción económica de DirecTV"
+            ],
+            "logo_url": "/library/directv.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Perfil compartido con hasta 3 personas más. Acceso al catálogo de canales disponibles.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Perfil compartido — puede haber otros usuarios activos",
+                "No se puede modificar la cuenta"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Canales deportivos",
+                "Entretenimiento",
+                "Noticias"
+            ]
+        },
+        {
+            "id": "278a2f63-4280-5b1a-86bb-b4380d62bb1b",
+            "name": "Movistar TV + Gol Perú y Liga 1",
+            "tags": [
+                "deportes",
+                "futbol",
+                "liga1",
+                "gol peru",
+                "tv en vivo",
+                "peru"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Solo funciona en Smart TV",
+                    "price": 18.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Solo funciona en Smart TV",
+                    "price": 51.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Se entrega correo y contraseña",
+                    "price": 33.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Gol Perú y Liga 1 MAX incluidos",
+                "Canales deportivos nacionales",
+                "Solo funciona en Smart TV",
+                "Credenciales propias en cuenta completa"
+            ],
+            "logo_url": "/library/movistar.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Gol Perú y Liga 1 MAX incluidos. Canales deportivos nacionales.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Solo compatible con Smart TV",
+                "No funciona en celular ni PC"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Liga 1 Perú",
+                "Gol Perú",
+                "Deportes nacionales"
+            ]
+        },
+        {
+            "id": "0a4f295e-e0cd-5261-a284-4b756409fb69",
+            "name": "Viki Rakuten",
+            "tags": [
+                "kdramas",
+                "doramas",
+                "asiatico",
+                "coreano",
+                "japones",
+                "chino"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 8.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 21.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Todas las funciones desbloqueadas",
+                    "price": 15.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Catálogo completo de K-dramas y doramas asiáticos",
+                "Series coreanas, japonesas y chinas",
+                "Subtítulos en español"
+            ],
+            "logo_url": "/library/viki.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Catálogo completo de K-dramas y doramas asiáticos. Series coreanas, japonesas y chinas.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Crash Landing on You",
+                "Goblin",
+                "My Love from the Star",
+                "Squid Game precuela"
+            ]
+        },
+        {
+            "id": "9795c3fd-a393-5c36-b975-c6cc0ab300ee",
+            "name": "Cineplanet — Combos y Entradas",
+            "tags": [
+                "cine",
+                "peliculas",
+                "combos",
+                "entradas",
+                "canchita",
+                "popcorn"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [],
+            "features": [],
+            "logo_url": "/library/cineplanet.webp",
+            "fixed_note": null,
+            "category_id": "0ad3aa65-097a-55a0-90c2-eca60d511cec",
+            "description": null,
+            "fixed_price": null,
+            "consult_note": "Precio según disponibilidad. Consúltanos por WhatsApp.",
+            "pricing_mode": "consult",
+            "restrictions": [],
+            "extra_sections": [
+                {
+                    "kind": "image",
+                    "items": [],
+                    "title": "Combos disponibles",
+                    "image_url": "/demo/cstream/cineplanet_combos.webp"
+                },
+                {
+                    "kind": "steps",
+                    "items": [
+                        "Indícanos qué necesitas: entrada, combo o ambos",
+                        "Dinos la sede de Cineplanet y la película que quieres ver",
+                        "Si necesitas horarios, te generamos el mensaje para solicitarlos",
+                        "Te confirmamos el precio según tu sede",
+                        "Realizas el pago por YAPE o PLIN",
+                        "Hacemos la compra en tu nombre y te enviamos el QR por WhatsApp",
+                        "Presentas el QR en la dulcería o boletería — ¡listo!"
+                    ],
+                    "title": "Cómo comprar"
+                },
+                {
+                    "kind": "note",
+                    "items": [
+                        "Los combos deben usarse el mismo día de la compra — no son válidos para otra fecha",
+                        "El descuento en entradas es de hasta 50% — el porcentaje exacto varía según sede y función",
+                        "Los precios varían por ciudad y sede — siempre consultamos antes de cobrar"
+                    ],
+                    "title": "Importante"
+                },
+                {
+                    "kind": "steps",
+                    "items": [
+                        "Al recoger tu combo en la dulcería, te entregarán un voucher",
+                        "Guarda ese voucher durante la película",
+                        "Cuando quieras recargar tu canchita, preséntalo en dulcería",
+                        "Recibe tu recarga gratis — válido 1 sola vez por combo"
+                    ],
+                    "title": "¿Cómo funciona el refill de la canchita?"
+                },
+                {
+                    "kind": "list",
+                    "items": [
+                        "Combo Oro Personal: Canchita mediana, Gaseosa mediana, 1 refill de canchita gratis",
+                        "Combo Oro Dúo: 2 canchitas medianas, 2 gaseosas medianas, 1 refill por canchita gratis",
+                        "Combo Black Personal: Canchita mediana, Gaseosa mediana, Nachos o hot dog a elección, 1 refill de canchita gratis",
+                        "Combo Black Gigante: Canchita gigante, 2 gaseosas medianas, Nachos o hot dog a elección, 1 refill de canchita gratis"
+                    ],
+                    "title": "Combos"
+                }
+            ],
+            "popular_content": []
+        },
+        {
+            "id": "a92514d4-9390-51b6-abcc-5654bdaa4436",
+            "name": "Mubi",
+            "tags": [
+                "cine de autor",
+                "arte",
+                "festivales",
+                "clasicos",
+                "indie"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 7.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 19.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Acceso completo a todo el catálogo",
+                    "price": 13.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Cine de autor y festivales internacionales",
+                "Clásicos del cine mundial",
+                "Películas independientes y de culto"
+            ],
+            "logo_url": "/library/mubi.webp",
+            "fixed_note": null,
+            "category_id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "description": "Cine de autor y festivales internacionales. Clásicos del cine mundial.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Películas de Cannes",
+                "Cine europeo",
+                "Clásicos japoneses",
+                "Cine latinoamericano"
+            ]
+        },
+        {
+            "id": "0cca1b76-c8c8-51fe-8184-981d35f90ea5",
+            "name": "Spotify Premium",
+            "tags": [
+                "musica",
+                "podcasts",
+                "sin anuncios",
+                "descargas",
+                "playlists"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Activación por invitación o correo propio",
+                    "price": 8.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Activación por invitación o correo propio",
+                    "price": 20.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Música sin anuncios ni interrupciones",
+                "Descargas para escuchar sin internet",
+                "Calidad de audio alta",
+                "Podcasts ilimitados"
+            ],
+            "logo_url": "/library/spotify.webp",
+            "fixed_note": null,
+            "category_id": "f5d5c94c-4b20-57f4-b4d5-29034d9d3712",
+            "description": "Música sin anuncios ni interrupciones. Descargas para escuchar sin internet.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Playlists personalizadas",
+                "Podcasts exclusivos",
+                "Nuevos lanzamientos",
+                "Radio"
+            ]
+        },
+        {
+            "id": "2321fba6-af52-56a8-a243-506dc94ce61f",
+            "name": "Deezer Premium",
+            "tags": [
+                "musica",
+                "sin anuncios",
+                "calidad HD",
+                "descargas",
+                "podcasts"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 6.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 16.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Credenciales completas",
+                    "price": 10.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Música sin anuncios",
+                "Calidad de audio HD y HiFi",
+                "Descargas ilimitadas",
+                "Recomendaciones personalizadas"
+            ],
+            "logo_url": "/library/deezer.webp",
+            "fixed_note": null,
+            "category_id": "f5d5c94c-4b20-57f4-b4d5-29034d9d3712",
+            "description": "Música sin anuncios. Calidad de audio HD y HiFi.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "1 dispositivo activo a la vez"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Música latina",
+                "Rock",
+                "Pop",
+                "Electrónica",
+                "Podcasts"
+            ]
+        },
+        {
+            "id": "306c8d03-10ba-5e61-b2ff-ba4590f98137",
+            "name": "ChatGPT GO",
+            "tags": [
+                "inteligencia artificial",
+                "IA",
+                "chatbot",
+                "escritura",
+                "productividad"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Cuenta compartida activada por código",
+                    "price": 5.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Cuenta compartida activada por código",
+                    "price": 13.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Acceso a ChatGPT con capacidades avanzadas",
+                "Activación por código — cuenta compartida",
+                "Ideal para trabajo, estudio y productividad"
+            ],
+            "logo_url": "/library/chatgpt.webp",
+            "fixed_note": null,
+            "category_id": "0639286f-e17f-51e6-97b2-b28fffcbef5e",
+            "description": "Acceso a ChatGPT con capacidades avanzadas. Activación por código — cuenta compartida.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Cuenta compartida — uso responsable"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Redacción de textos",
+                "Análisis",
+                "Código",
+                "Resúmenes",
+                "Traducción"
+            ]
+        },
+        {
+            "id": "c93a449b-2a78-509b-a6de-79cabf1c036e",
+            "name": "Canva Pro",
+            "tags": [
+                "diseño",
+                "graficos",
+                "presentaciones",
+                "redes sociales",
+                "creatividad"
+            ],
+            "badge": "popular",
+            "stock": "available",
+            "prices": [
+                {
+                    "note": null,
+                    "price": 4.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": null,
+                    "price": 10.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                }
+            ],
+            "features": [
+                "Acceso completo a todas las funciones Pro",
+                "Millones de plantillas premium",
+                "Eliminación de fondo con un clic",
+                "Exportación sin marca de agua"
+            ],
+            "logo_url": "/library/canva.webp",
+            "fixed_note": null,
+            "category_id": "0639286f-e17f-51e6-97b2-b28fffcbef5e",
+            "description": "Acceso completo a todas las funciones Pro. Millones de plantillas premium.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Activación en tu cuenta Canva existente o nueva"
+            ],
+            "extra_sections": [
+                {
+                    "kind": "note",
+                    "items": [
+                        "Para planes de 6 o 12 meses, consulta con un asesor para obtener el mejor precio."
+                    ],
+                    "title": "Planes largos"
+                }
+            ],
+            "popular_content": [
+                "Diseño para redes sociales",
+                "Presentaciones",
+                "Logos",
+                "Flyers",
+                "Videos"
+            ]
+        },
+        {
+            "id": "cdf88eae-6f64-50e4-9393-728f7fac4ad3",
+            "name": "Google One 2TB + Gemini Advanced",
+            "tags": [
+                "almacenamiento",
+                "google drive",
+                "gemini",
+                "inteligencia artificial",
+                "nube"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [],
+            "features": [
+                "2TB de almacenamiento en Google Drive",
+                "Gemini Advanced incluido",
+                "Activación por enlace directo",
+                "Garantía de activación"
+            ],
+            "logo_url": "/library/google.webp",
+            "fixed_note": "Precio fijo de S/15.00 — incluye activación por 18 meses estimados",
+            "category_id": "0639286f-e17f-51e6-97b2-b28fffcbef5e",
+            "description": "2TB de almacenamiento en Google Drive. Gemini Advanced incluido.",
+            "fixed_price": 15.0,
+            "consult_note": null,
+            "pricing_mode": "fixed",
+            "restrictions": [
+                "Solo se garantiza la activación",
+                "La duración posterior no está garantizada"
+            ],
+            "extra_sections": [
+                {
+                    "kind": "steps",
+                    "items": [
+                        "Realizas el pago — precio fijo S/ 15.00",
+                        "Te enviamos un enlace de activación por WhatsApp",
+                        "Activas con tu cuenta Google existente",
+                        "Listo — 2TB en Drive + Gemini Advanced activos"
+                    ],
+                    "title": "Cómo se activa"
+                },
+                {
+                    "kind": "list",
+                    "items": [
+                        "Garantizamos que la activación se realice correctamente.",
+                        "La garantía NO cubre la duración del servicio posterior a la activación.",
+                        "El acceso puede durar hasta 18 meses aproximadamente, o puede verse afectado antes por factores externos fuera de nuestro control."
+                    ],
+                    "title": "Garantía de activación"
+                }
+            ],
+            "popular_content": [
+                "Google Drive 2TB",
+                "Gemini Advanced IA",
+                "Google Fotos ilimitado"
+            ]
+        },
+        {
+            "id": "0631149f-4a44-5005-9387-283a04f0f7d4",
+            "name": "IPTV",
+            "tags": [
+                "canales",
+                "tv en vivo",
+                "deportes",
+                "peliculas",
+                "series",
+                "internacional"
+            ],
+            "badge": null,
+            "stock": "available",
+            "prices": [
+                {
+                    "note": "Precio por 1 dispositivo. Consultar para 2 o más dispositivos.",
+                    "price": 6.0,
+                    "option_id": "a5723511-43c6-54a8-a7a8-b796e84d94ff"
+                },
+                {
+                    "note": "Precio por 1 dispositivo. Consultar para 2 o más dispositivos.",
+                    "price": 16.0,
+                    "option_id": "d10be792-60c6-5b33-b831-76a6eb164162"
+                },
+                {
+                    "note": "Línea IPTV completa con credenciales propias",
+                    "price": 10.0,
+                    "option_id": "1b7646f6-6122-53bd-9193-4f7dd18c9585"
+                }
+            ],
+            "features": [
+                "Canales nacionales e internacionales",
+                "Compatible con Smarters, TiviMate y más",
+                "Deportes, noticias y entretenimiento en vivo",
+                "Disponible para 1, 2 o 3+ dispositivos"
+            ],
+            "logo_url": "/library/iptv.webp",
+            "fixed_note": null,
+            "category_id": "7d9b71e7-170c-5bcf-b65b-9c1a5148cecf",
+            "description": "Canales nacionales e internacionales. Compatible con Smarters, TiviMate y más.",
+            "fixed_price": null,
+            "consult_note": null,
+            "pricing_mode": "options",
+            "restrictions": [
+                "Precio varía según cantidad de dispositivos"
+            ],
+            "extra_sections": [],
+            "popular_content": [
+                "Canales deportivos",
+                "TV peruana en vivo",
+                "Series internacionales",
+                "Canales de noticias"
+            ]
+        }
+    ],
+    "categories": [
+        {
+            "id": "ae7bd42d-1628-5254-acdb-42485715fc8c",
+            "icon": "tv",
+            "name": "Streaming",
+            "combo_eligible": true
+        },
+        {
+            "id": "f5d5c94c-4b20-57f4-b4d5-29034d9d3712",
+            "icon": "music",
+            "name": "Música",
+            "combo_eligible": true
+        },
+        {
+            "id": "0639286f-e17f-51e6-97b2-b28fffcbef5e",
+            "icon": "wand",
+            "name": "Herramientas",
+            "combo_eligible": false
+        },
+        {
+            "id": "7d9b71e7-170c-5bcf-b65b-9c1a5148cecf",
+            "icon": "radio",
+            "name": "IPTV",
+            "combo_eligible": false
+        },
+        {
+            "id": "0ad3aa65-097a-55a0-90c2-eca60d511cec",
+            "icon": "sparkles",
+            "name": "Especiales",
+            "combo_eligible": false
+        }
+    ],
+    "announcements": [
+        {
+            "id": "d37a5957-d79d-4d20-b993-a177aa2a3c19",
+            "sort": 10,
+            "tone": "accent",
+            "title": "Combos con precio especial",
+            "ends_at": null,
+            "message": "Netflix + Spotify desde S/ 19.00 y más combinaciones con ahorro incluido. Agrégalos con un toque.",
+            "cta_kind": "url",
+            "cta_label": "Ver combos",
+            "cta_value": "#combos",
+            "image_url": null,
+            "starts_at": "2026-10-31T13:05:49.983614-05:00",
+            "show_popup": true
+        },
+        {
+            "id": "bb245602-af27-472a-bf6c-ef7be536247c",
+            "sort": 20,
+            "tone": "info",
+            "title": "Cineplanet con hasta 50% de descuento",
+            "ends_at": null,
+            "message": "Entradas y combos de dulcería. El precio depende de tu sede: escríbenos y te confirmamos antes de cobrar.",
+            "cta_kind": "platform",
+            "cta_label": "Ver detalles",
+            "cta_value": "9795c3fd-a393-5c36-b975-c6cc0ab300ee",
+            "image_url": "/demo/cstream/cineplanet_combos.webp",
+            "starts_at": "2026-10-31T13:05:49.983614-05:00",
+            "show_popup": true
+        }
+    ],
+    "discount_rules": [],
+    "payment_methods": [
+        {
+            "id": "d9041636-431d-49ed-8b43-ea059e2a86c1",
+            "kind": "yape",
+            "name": "YAPE",
+            "note": null,
+            "holder": "Carlos Ismael Estrada Manchay",
+            "qr_url": "/demo/cstream/qr_yape.webp",
+            "account": "970765248",
+            "logo_url": "/library/pay/yape.webp",
+            "instructions": [
+                "Abre tu app de YAPE",
+                "Escanea el QR o ingresa el número",
+                "Ingresa el monto exacto de tu pedido",
+                "Toma captura del comprobante",
+                "Envíala por WhatsApp junto con tu pedido"
+            ],
+            "account_label": "Número"
+        },
+        {
+            "id": "b727f781-7a9b-4a0c-bb4a-a999e3f4132f",
+            "kind": "plin",
+            "name": "PLIN",
+            "note": null,
+            "holder": "Carlos Ismael Estrada Manchay",
+            "qr_url": "/demo/cstream/qr_plin.webp",
+            "account": "970765248",
+            "logo_url": "/library/pay/plin.webp",
+            "instructions": [
+                "Abre tu app bancaria con PLIN (BBVA, Scotiabank, Interbank, BanBif)",
+                "Escanea el QR o ingresa el número",
+                "Ingresa el monto exacto de tu pedido",
+                "Toma captura del comprobante",
+                "Envíala por WhatsApp junto con tu pedido"
+            ],
+            "account_label": "Número"
+        },
+        {
+            "id": "abc63d0e-265f-409d-a1cf-5f210ab13c99",
+            "kind": "bcp",
+            "name": "BCP",
+            "note": "Solicitar número de cuenta por WhatsApp",
+            "holder": "Carlos Ismael Estrada Manchay",
+            "qr_url": null,
+            "account": null,
+            "logo_url": "/library/pay/bcp.webp",
+            "instructions": [
+                "Contáctanos por WhatsApp para obtener el número de cuenta BCP",
+                "Realiza la transferencia por la app BCP o Yape BCP",
+                "Ingresa el monto exacto de tu pedido",
+                "Toma captura del comprobante",
+                "Envíala por WhatsApp junto con tu pedido"
+            ],
+            "account_label": "Número"
+        },
+        {
+            "id": "020ff6b4-0fe8-49d5-a51e-485b25a8c266",
+            "kind": "lemon",
+            "name": "LEMON",
+            "note": null,
+            "holder": "Carlos Ismael Estrada Manchay",
+            "qr_url": "/demo/cstream/qr_lemon.webp",
+            "account": "970765248",
+            "logo_url": "/library/pay/lemon.webp",
+            "instructions": [
+                "Abre tu app de LEMON",
+                "Escanea el QR o ingresa el número",
+                "Ingresa el monto exacto de tu pedido",
+                "Toma captura del comprobante",
+                "Envíala por WhatsApp junto con tu pedido"
+            ],
+            "account_label": "Número"
+        },
+        {
+            "id": "b35244ed-e577-4de6-88a5-842b2e9f5f7e",
+            "kind": "binance",
+            "name": "Binance Pay",
+            "note": "El pago se realiza en USDT. El tipo de cambio se coordina por WhatsApp.",
+            "holder": "Carlos Ismael Estrada Manchay",
+            "qr_url": "/demo/cstream/qr_binance.webp",
+            "account": "1155145233",
+            "logo_url": "/library/pay/binance.webp",
+            "instructions": [
+                "Abre tu app de Binance",
+                "Ve a Pay y selecciona 'Enviar'",
+                "Escanea el QR o ingresa el ID de Binance",
+                "Ingresa el monto exacto en USDT equivalente",
+                "Toma captura del comprobante",
+                "Envíala por WhatsApp junto con tu pedido"
+            ],
+            "account_label": "ID Binance"
+        }
+    ]
+}

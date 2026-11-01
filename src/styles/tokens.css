@@ -1,0 +1,68 @@
+/* ════════════════════════════════════════════
+   Tokens · el acento lo pone cada dueño
+   (--accent, --on-accent, --accent-edge, --accent-text-*)
+════════════════════════════════════════════ */
+:root {
+  --accent: #ff6b35;
+  --on-accent: #121316;
+  --accent-edge: #c4451a;
+  --accent-text-light: #c2410c;
+  --accent-text-dark: #ff8a5c;
+
+  --bg: #f4f5f7;
+  --surface: #ffffff;
+  --surface-2: #eef0f3;
+  --ink: #121316;
+  --muted: #565b6a;
+  --faint: #868c9b;
+  --line: #e1e4ea;
+  --line-strong: #cbd0d8;
+  --key-top: #ffffff;
+  --key-face: #f8f9fb;
+  --key-edge: #cfd4dc;
+  --lift: 0 1px 2px rgba(18, 20, 26, .05), 0 10px 24px -14px rgba(18, 20, 26, .22);
+  --overlay: rgba(14, 15, 19, .44);
+  --accent-text: var(--accent-text-light);
+  --accent-soft: color-mix(in oklab, var(--accent) 13%, transparent);
+  --accent-line: color-mix(in oklab, var(--accent) 38%, transparent);
+
+  --wa: #1d9a50;
+  --wa-edge: #146e39;
+  --ok: #1d9a50;
+  --warn: #a8660d;
+  --danger: #d23a3a;
+
+  --r: 18px;
+  --r-sm: calc(var(--r) * .62);
+  --r-xs: calc(var(--r) * .4);
+  --header-h: 60px;
+  --font-display: 'Bricolage Grotesque Variable', system-ui, sans-serif;
+  --font-body: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+  --font-cards: 'Plus Jakarta Sans Variable', system-ui, sans-serif;
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --ease-back: cubic-bezier(.34, 1.56, .64, 1);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --bg: #0d0e11;
+  --surface: #16181d;
+  --surface-2: #1d2026;
+  --ink: #f0f1f4;
+  --muted: #a2a8b6;
+  --faint: #6f7585;
+  --line: #262930;
+  --line-strong: #343842;
+  --key-top: #23262d;
+  --key-face: #1b1e24;
+  --key-edge: #07080a;
+  --lift: 0 1px 0 rgba(255, 255, 255, .03) inset, 0 14px 30px -16px rgba(0, 0, 0, .7);
+  --overlay: rgba(0, 0, 0, .62);
+  --accent-text: var(--accent-text-dark);
+  --accent-soft: color-mix(in oklab, var(--accent) 18%, transparent);
+  color-scheme: dark;
+}
+
+/* Transición de tema con círculo */
+::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+::view-transition-new(root) { z-index: 2; }
