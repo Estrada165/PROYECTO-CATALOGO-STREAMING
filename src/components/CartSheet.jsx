@@ -11,10 +11,12 @@ export default function CartSheet({ open, onClose, summary, cat, sym, dispatch, 
   const methods = cat.payment_methods || []
   const [methodId, setMethodId] = useState(methods[0]?.id)
   const [zoom, setZoom] = useState(null)
+  const [sure, setSure] = useState(false)
   const method = methods.find(m => m.id === methodId)
   const settings = cat.settings
 
-  useEffect(() => { if (open) setStep('cart') }, [open])
+  useEffect(() => { if (open) { setStep('cart'); setSure(false) } }, [open])
+  useEffect(() => { if (!sure) return; const t = setTimeout(() => setSure(false), 4000); return () => clearTimeout(t) }, [sure])
   useEffect(() => { if (!summary.count && step !== 'sent') setStep('cart') }, [summary.count]) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { store.set(`cs-name:${slug}`, name) }, [name, slug])
 
@@ -32,6 +34,18 @@ export default function CartSheet({ open, onClose, summary, cat, sym, dispatch, 
       </div>
     ) : (
       <div>
+        <div className="cart-top">
+          <span className="tnum">{summary.count} {summary.count === 1 ? 'producto' : 'productos'}</span>
+          {sure ? (
+            <span className="cart-top__ask" role="group" aria-label="Confirmar vaciar carrito">
+              ¿Vaciar todo?
+              <button className="key key--ghost key--sm" onClick={() => setSure(false)}>No</button>
+              <button className="key key--sm cart-top__yes" onClick={() => { dispatch({ type: 'clear' }); setSure(false); toast('Carrito vacío') }}>Sí, vaciar</button>
+            </span>
+          ) : (
+            <button className="cart-top__clear" onClick={() => setSure(true)}><Trash2 size={14} /> Vaciar carrito</button>
+          )}
+        </div>
         {summary.rows.map(r => (
           <div className="cart-line" key={r.key}>
             {r.kind === 'combo' ? (

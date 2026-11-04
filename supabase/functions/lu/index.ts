@@ -83,6 +83,27 @@ const webPause = new Map<string, number>()
 const webBlocked = (t: string) => (webPause.get(t) || 0) > Date.now()
 const blockWeb = (t: string) => webPause.set(t, Date.now() + 30 * 60 * 1000)
 
+// La búsqueda en Google tiene cupo propio por modelo. En el plan gratis los modelos
+// más nuevos suelen tener 0, pero los 2.5 sí traen búsquedas diarias gratis.
+// Se prueba el modelo del catálogo y luego estos; se recuerda el que funcionó.
+const SEARCH_FALLBACK = ['gemini-2.5-flash', 'gemini-2.5-flash-lite']
+const webModel = new Map<string, string>()
+async function geminiWeb(tid: string, key: string, model: string, system: string, contents: unknown[], maxTokens = 2048) {
+  const known = webModel.get(tid)
+  const list = [...new Set([known, model, ...SEARCH_FALLBACK].filter(Boolean))] as string[]
+  let last: unknown
+  for (const m of list) {
+    try { const out = await geminiRaw(key, m, system, contents, maxTokens, true); webModel.set(tid, m); return { ...out, model: m } }
+    catch (e) {
+      last = e
+      const st = (e as { status?: number }).status
+      if (st === 401 || st === 403) throw e            // clave mala: no tiene caso seguir
+      if (known === m) webModel.delete(tid)
+    }
+  }
+  throw last
+}
+
 // ¿La pregunta es sobre películas, series o contenido? Solo entonces se busca en internet.
 const CONTENT_Q = /pel[ií]cul|serie|estren|temporada|cap[ií]tulo|anime|dorama|novela|document|d[oó]nde (puedo )?ver|en qu[eé] plataforma|est[aá] en|sale en|actor|actriz|saga|reality|partido|liga|f[uú]tbol|concierto|movie/i
 
@@ -203,7 +224,11 @@ Deno.serve(async req => {
         const reply = await gemini(k, row.model, 'Responde solo: "Lista para atender 👋"', [{ role: 'user', parts: [{ text: 'Hola' }] }], 200)
         // Prueba aparte de la búsqueda en internet (tiene su propio cupo)
         let web = 'ok'
-        try { await geminiRaw(k, row.model, 'Responde en una línea.', [{ role: 'user', parts: [{ text: '¿En qué plataforma de streaming está la serie Stranger Things en Perú?' }] }], 300, true) }
+        try {
+          const w = await geminiWeb(tid, k, row.model, 'Responde en una línea.', [{ role: 'user', parts: [{ text: '¿En qué plataforma de streaming está la serie Stranger Things en Perú?' }] }], 300)
+          if (w.model !== row.model) web = `ok:${w.model}`
+          webPause.delete(tid)
+        }
         catch (e) { web = `no disponible (${(e as { status?: number }).status || 'error'}): ${(e as Error).message.slice(0, 140)}` }
         return json({ ok: true, reply, ms: Date.now() - t0, model: row.model, web })
       } catch (e) {
@@ -248,10 +273,9 @@ Deno.serve(async req => {
       const key = await decrypt(cred.api_key_ciphertext)
       const sys = systemPrompt(cat, bot, buildContext(cat, extra))
       let out, usedWeb = web && !webBlocked(tenant.id)
-      try { out = await geminiRaw(key, cred.model, sys, contents, 2048, usedWeb) }
+      try { out = usedWeb ? await geminiWeb(tenant.id, key, cred.model, sys, contents) : await geminiRaw(key, cred.model, sys, contents, 2048, false) }
       catch (e) {
-        // La búsqueda en Google tiene su propio cupo (en el plan gratis suele ser 0 o muy bajo).
-        // Si falla, se pausa 30 min para este catálogo y se responde sin internet.
+        // Ningún modelo tuvo cupo de búsqueda: se pausa 30 min para este catálogo y se responde sin internet.
         if (!usedWeb) throw e
         console.warn('busqueda no disponible', (e as { status?: number }).status, (e as Error).message)
         blockWeb(tenant.id); usedWeb = false

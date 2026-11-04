@@ -404,7 +404,7 @@ function AiTab({ t, toast }) {
       </div>}
       {test && <div className={`pbanner pbanner--${test.ok ? 'info' : 'danger'} pf--wide`}>{test.ok ? <Check size={18} /> : <ShieldAlert size={18} />}<div>
         <b>{test.ok ? 'Conexión correcta' : 'No se pudo conectar'}</b><br />{test.text}
-        {test.web && <><br /><b>Búsqueda en internet:</b> {test.web === 'ok' ? 'disponible ✓' : `${test.web}. Lu responderá igual, sin buscar en internet. Para activarla necesitas una clave con facturación o cupo de búsqueda en AI Studio.`}</>}
+        {test.web && <><br /><b>Búsqueda en internet:</b> {test.web === 'ok' ? 'disponible ✓' : test.web.startsWith('ok:') ? `disponible ✓ (usa ${test.web.slice(3)} solo para buscar; tu modelo no tiene cupo de búsqueda gratis)` : `${test.web}. Lu responderá igual, sin buscar en internet. Para activarla necesitas una clave con facturación o cupo de búsqueda en AI Studio.`}</>}
       </div></div>}
     </div>
   )
