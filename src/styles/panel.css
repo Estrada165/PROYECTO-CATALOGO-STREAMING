@@ -632,3 +632,10 @@ body.pdragging { user-select: none; cursor: grabbing; }
 .tseed div { flex: 1 1 260px; display: flex; flex-direction: column; }
 .tseed small { color: var(--muted); font-size: 12.5px; }
 .key--install { border-color: var(--accent-line); color: var(--accent-text); }
+
+/* Categorías: ícono del filtro */
+.pcat-ic { flex-shrink: 0; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); }
+.pcat-icons { display: flex; flex-wrap: wrap; gap: 6px; }
+.pcat-icons button { width: 42px; height: 42px; border-radius: var(--r-sm); display: grid; place-items: center; border: 1px solid var(--line-strong); background: var(--surface); color: var(--muted); box-shadow: 0 2px 0 var(--key-edge); transition: all .15s var(--ease); }
+.pcat-icons button:hover { color: var(--ink); }
+.pcat-icons button[aria-checked='true'] { color: var(--accent-text); background: var(--accent-soft); border-color: var(--accent); box-shadow: 0 2px 0 var(--accent); }

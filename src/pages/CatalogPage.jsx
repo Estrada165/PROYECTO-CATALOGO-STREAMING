@@ -10,6 +10,7 @@ import { money, store, session } from '../lib/format'
 import { applyPalette } from '../lib/color'
 import { applyFonts } from '../lib/fonts'
 import InfoTip from '../components/InfoTip'
+import CategoryFilter from '../components/CategoryFilter'
 import { helpTexts } from '../lib/help'
 import { switchTheme, flyPlane, bump, haptic } from '../lib/motion'
 import PlatformCard from '../components/PlatformCard'
@@ -156,6 +157,7 @@ function Catalog({ cat, slug, preview = false, previewTheme }) {
     : []
   const countFor = cid => idx.platforms.filter(p => visibleUnder(p, optionId) && (cid === 'all' || p.category_id === cid)).length
   const cats = (cat.categories || []).filter(c => countFor(c.id) > 0)
+  useEffect(() => { if (catId !== 'all' && !cats.some(c => c.id === catId)) setCatId('all') }, [optionId]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const summary = useMemo(() => summarize(lines, idx, cat), [lines, idx, cat])
   const qtyOf = (p) => lines.filter(l => l.platformId === p.id && (p.pricing_mode === 'fixed' || l.optionId === optionId)).reduce((n, l) => n + l.qty, 0)
@@ -216,7 +218,7 @@ function Catalog({ cat, slug, preview = false, previewTheme }) {
   }
   const tip = helpTexts(s, rules, sym)
   const popular = idx.platforms.filter(p => p.badge === 'popular' && p.logo_url && (p.pricing_mode !== 'options' || priceFor(p, optionId) != null)).slice(0, 6)
-  const marquee = idx.platforms.filter(p => p.logo_url)
+  const marquee = idx.platforms.filter(p => p.logo_url && (catId === 'all' || p.category_id === catId))
   const pfP = pf ? idx.byId[pf] : null
   const pfCards = pfP ? (pfP.pricing_mode === 'options' ? idx.options.filter(o => priceFor(pfP, o.id) != null) : [null]) : []
   const qtyIn = (p, oid) => lines.filter(l => l.platformId === p.id && (p.pricing_mode !== 'options' || l.optionId === oid)).reduce((n, l) => n + l.qty, 0)
@@ -314,6 +316,7 @@ function Catalog({ cat, slug, preview = false, previewTheme }) {
 
         <div className="ctrl" id="catalogo">
           <div className="wrap ctrl__in">
+            <div className="filters">
             {idx.options.length > 1 && (
               <div className="seg-row">
                 <div className="seg" role="group" aria-label="Tipo de acceso y duración">
@@ -326,8 +329,13 @@ function Catalog({ cat, slug, preview = false, previewTheme }) {
                 <InfoTip label="¿Perfil o cuenta completa?">{tip.plan}</InfoTip>
               </div>
             )}
+            {cats.length > 1 && (
+              <CategoryFilter cats={cats} value={catId} countFor={countFor}
+                onChange={id => { setCatId(id); setPf(null); haptic(8) }} />
+            )}
+            </div>
             {marquee.length > 2 && (
-              <PlatformBar items={marquee} selected={pf} onPick={id => { setPf(id === pf ? null : id); setQ(''); haptic(8); setTimeout(() => goTo('#catalogo-grid'), 60) }} onClear={() => setPf(null)} />
+              <PlatformBar items={marquee} selected={pf} onPick={id => { setPf(id === pf ? null : id); setQ(''); setCatId('all'); haptic(8); setTimeout(() => goTo('#catalogo-grid'), 60) }} onClear={() => setPf(null)} />
             )}
           </div>
         </div>

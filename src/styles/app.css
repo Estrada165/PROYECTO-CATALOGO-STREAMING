@@ -223,6 +223,32 @@ a { color: inherit; }
   color: var(--on-accent); background: var(--accent); border-color: var(--accent-edge);
   box-shadow: 0 2px 0 var(--accent-edge);
 }
+.filters { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.catf { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; padding: 2px 2px 5px; margin: 0 -2px; min-width: 0;
+  -webkit-mask: linear-gradient(90deg, #000 calc(100% - 20px), transparent); mask: linear-gradient(90deg, #000 calc(100% - 20px), transparent); padding-right: 20px; }
+.catf::-webkit-scrollbar { display: none; }
+.catf__btn {
+  flex-shrink: 0; display: inline-flex; align-items: center; gap: 7px; height: 36px; padding: 0 13px;
+  border-radius: var(--r-sm); border: 1px solid var(--line-strong); background: var(--surface);
+  font-size: 13.5px; font-weight: 600; color: var(--muted); box-shadow: 0 2px 0 var(--key-edge);
+  transition: color .2s, background .2s, border-color .2s, transform .12s;
+}
+.catf__btn:hover { color: var(--ink); border-color: var(--faint); }
+.catf__btn:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--key-edge); }
+.catf__btn em { font-style: normal; font-size: 11px; font-weight: 700; color: var(--faint); background: var(--surface-2); border-radius: 99px; padding: 1px 6px; }
+.catf__btn[aria-pressed='true'] { color: var(--accent-text); background: var(--accent-soft); border-color: var(--accent-line); box-shadow: 0 2px 0 var(--accent-line); }
+.catf__btn[aria-pressed='true'] em { color: var(--accent-text); background: color-mix(in oklab, var(--surface) 70%, transparent); }
+@media (max-width: 619px) {
+  .catf__btn { height: 32px; padding: 0 11px; font-size: 12.5px; gap: 6px; }
+  .catf__btn svg { width: 15px; height: 15px; }
+}
+@media (min-width: 900px) {
+  .filters { flex-direction: row; align-items: center; gap: 14px; }
+  .filters .seg-row { flex-shrink: 0; max-width: 60%; }
+  .filters .seg-row + .catf { padding-left: 14px; border-left: 1px solid var(--line-strong); }
+  .catf__btn { height: 44px; padding: 0 14px; }
+  .catf { flex: 1; }
+}
 .chips { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; padding: 2px 2px 4px; margin: 0 -2px; }
 .chips::-webkit-scrollbar { display: none; }
 .chip {

@@ -4,6 +4,7 @@ import { usePanel, PageHead } from '../PanelApp'
 import { Text, Select, Toggle, Confirm, OrderButtons, moveItem, Empty, Explain } from '../ui'
 import Sheet from '../../components/Sheet'
 import * as api from '../api'
+import { CAT_ICONS, catIcon } from '../../components/CategoryFilter'
 
 const ACCESS = [{ value: 'profile', label: 'Perfil (acceso compartido)' }, { value: 'complete', label: 'Cuenta completa' }, { value: 'other', label: 'Otro' }]
 const DAY_PRESETS = [['1 mes', 30], ['2 meses', 60], ['3 meses', 90], ['6 meses', 180], ['12 meses', 365]]
@@ -11,7 +12,7 @@ const DAY_PRESETS = [['1 mes', 30], ['2 meses', 60], ['3 meses', 90], ['6 meses'
 export default function Opciones() {
   return (
     <>
-      <PageHead title="Duraciones y categorías" text="Las duraciones son los botones que el cliente ve arriba del catálogo (Perfil · 1 mes, Cuenta completa · 1 mes…). Las categorías son los filtros." />
+      <PageHead title="Duraciones y categorías" text="Las duraciones son los botones que el cliente ve arriba del catálogo (Perfil · 1 mes, Cuenta completa · 1 mes…). Las categorías salen como filtro al lado (Streaming, Música…). Cada plataforma se asigna a una categoría desde Plataformas." />
       <Explain steps={[['Cada duración es un botón', 'Tipo de acceso + tiempo: “Perfil · 1 mes”.'], ['Los precios van en cada plataforma', 'Si una plataforma no tiene precio en una duración, ahí no aparece.'], ['El número marca el orden', 'El 1 aparece primero. Toca el número para moverlo.']]} />
       <Durations />
       <Categories />
@@ -118,6 +119,7 @@ function Categories() {
         {items.map((c, i) => (
           <li key={c.id} className={`prow${c.active ? '' : ' is-off'}`}>
             <OrderButtons index={i} total={items.length} onMove={move} disabled={!canEdit || busy} />
+            <span className="pcat-ic" aria-hidden="true">{(() => { const Ic = catIcon(c.icon); return <Ic size={17} /> })()}</span>
             <button className="prow__main" onClick={() => setEdit({ ...c })}>
               <b>{c.name}{!c.active && <span className="ptag is-muted">Oculta</span>}</b>
               <small>{count(c.id)} plataformas{c.combo_eligible ? ' · cuenta para descuentos' : ''}</small>
@@ -133,6 +135,13 @@ function Categories() {
         </div>}>
         {edit && <fieldset className="pform" disabled={!canEdit}><div className="pfields">
           <Text label="Nombre" value={edit.name} onChange={v => setEdit(e => ({ ...e, name: v }))} max={24} wide />
+          <div className="pf pf--wide"><span className="pf__label">Ícono del filtro</span>
+            <div className="pcat-icons" role="radiogroup" aria-label="Ícono de la categoría">
+              {Object.entries(CAT_ICONS).map(([k, Ic]) => (
+                <button key={k} type="button" role="radio" aria-checked={(edit.icon || 'sparkles') === k} aria-label={k} onClick={() => setEdit(e => ({ ...e, icon: k }))}><Ic size={18} /></button>
+              ))}
+            </div>
+          </div>
           <Toggle label="Cuenta para descuentos por cantidad" hint="Solo aplica si activas los descuentos." checked={edit.combo_eligible} onChange={v => setEdit(e => ({ ...e, combo_eligible: v }))} />
           <Toggle label="Visible" checked={edit.active} onChange={v => setEdit(e => ({ ...e, active: v }))} />
         </div></fieldset>}
