@@ -396,7 +396,7 @@ function AiTab({ t, toast }) {
       <Select label="Modelo" value={f.model} onChange={v => setF(o => ({ ...o, model: v }))} options={MODELS} wide />
       <Text label="Respuestas por día (catálogo)" inputMode="numeric" value={f.daily_limit} onChange={v => setF(o => ({ ...o, daily_limit: v.replace(/\D/g, '').slice(0, 5) }))} hint="Mantenlo bajo el límite gratis de tu clave. 0 apaga el asistente." />
       <Text label="Mensajes por cliente al día" inputMode="numeric" value={f.per_visitor_limit} onChange={v => setF(o => ({ ...o, per_visitor_limit: v.replace(/\D/g, '').slice(0, 4) }))} hint="Evita que una sola persona gaste la cuota." />
-      <Toggle label="Buscar en internet para películas y series" hint="Solo cuando preguntan por contenido (dónde ver una película, estrenos…). La respuesta llega con un aviso de que es información de internet. Gasta un poco más de cuota." checked={f.web_search} onChange={v => setF(o => ({ ...o, web_search: v }))} />
+      <Toggle label="Decir dónde ver películas y series" hint="Cuando un cliente pregunta por un título, Lu consulta TMDB (plataformas en Perú) y recomienda las que vende este catálogo. Usa tu clave TMDB_KEY de Supabase, no la de Gemini." checked={f.web_search} onChange={v => setF(o => ({ ...o, web_search: v }))} />
       <button className="key key--accent key--lg pf--wide" onClick={() => save()} disabled={busy}>{busy ? <Loader2 className="spin" size={17} /> : <Check size={17} />} Guardar</button>
       {st.has_key && <div className="pf--wide tacts" style={{ margin: 0 }}>
         <button className="key key--sm" onClick={probe} disabled={busy}><Sparkles size={15} /> Probar conexión</button>
@@ -404,7 +404,7 @@ function AiTab({ t, toast }) {
       </div>}
       {test && <div className={`pbanner pbanner--${test.ok ? 'info' : 'danger'} pf--wide`}>{test.ok ? <Check size={18} /> : <ShieldAlert size={18} />}<div>
         <b>{test.ok ? 'Conexión correcta' : 'No se pudo conectar'}</b><br />{test.text}
-        {test.web && <><br /><b>Búsqueda en internet:</b> {test.web === 'ok' ? 'disponible ✓' : test.web.startsWith('ok:') ? `disponible ✓ (usa ${test.web.slice(3)} solo para buscar; tu modelo no tiene cupo de búsqueda gratis)` : `${test.web}. Lu responderá igual, sin buscar en internet. Para activarla necesitas una clave con facturación o cupo de búsqueda en AI Studio.`}</>}
+        {test.web && <><br /><b>Dónde ver (TMDB):</b> {test.web === 'sin_clave' ? 'falta el secreto TMDB_KEY en Supabase (Edge Functions → Secrets). Lu responde igual, sin buscar títulos.' : test.web.startsWith('ok') ? `funcionando ✓${test.web.length > 3 ? ` · prueba: ${test.web.slice(3)}` : ''}` : `${test.web}. Revisa que TMDB_KEY sea el token de lectura completo.`}</>}
       </div></div>}
     </div>
   )

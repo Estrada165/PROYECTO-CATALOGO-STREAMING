@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Plus, Pencil, Trash2, Check, Loader2, Bot, Sparkles } from 'lucide-react'
+import { Plus, Pencil, Trash2, Check, Loader2, Bot, Sparkles, BookOpen, ShoppingCart, Film, Gauge, MessageCircle, ChevronDown } from 'lucide-react'
 import { usePanel, PageHead } from '../PanelApp'
 import { Text, Area, Toggle, Confirm, Empty, ListEditor, SaveBar, Choice, ImageInput, Banner, Explain } from '../ui'
 import Sheet from '../../components/Sheet'
@@ -49,6 +49,7 @@ export default function Lu() {
       <Banner tone="info" icon={<Sparkles size={18} />}>
         <b>Cómo se activa:</b> el administrador conecta la IA a tu catálogo (tú no necesitas ninguna clave). Cuando esté conectada, tus clientes verán el botón “Pregúntale a {f.name || 'Lu'}” abajo a la derecha. Lo que configures aquí lo usa desde el primer mensaje.
       </Banner>
+      <HowLu name={f.name || 'Lu'} />
       <fieldset className="pform" disabled={!canEdit}>
         <section className="pcard">
           <h2 className="pcard__title">Personalidad</h2>
@@ -139,6 +140,33 @@ function BotFaqs() {
       <Confirm open={!!del} title="¿Eliminar esta respuesta?" text={del?.question} onClose={() => setDel(null)} onConfirm={async () => {
         try { await api.deleteRow('bot_faqs', del.id); patch('botFaqs', xs => xs.filter(x => x.id !== del.id)); setDel(null); setEdit(null); toast('Respuesta eliminada') } catch (e) { toast(api.niceError(e), 'error') }
       }} />
+    </section>
+  )
+}
+
+// Guía corta para el dueño: qué sabe, qué hace y qué límites tiene
+function HowLu({ name }) {
+  const [open, setOpen] = useState(() => { try { return localStorage.getItem('cs-howlu') !== '0' } catch { return true } })
+  const toggle = () => setOpen(v => { try { localStorage.setItem('cs-howlu', v ? '0' : '1') } catch { /* sin almacenamiento */ } return !v })
+  const items = [
+    [BookOpen, 'Qué sabe', `Todo lo que configuras en tu panel: plataformas, precios por duración, combos, descuentos, métodos de pago, garantía y las respuestas de esta página. Si cambias un precio, ${name} lo usa desde el siguiente mensaje.`],
+    [ShoppingCart, 'Qué hace', `Recomienda según lo que le gusta al cliente, le muestra cada plataforma con sus duraciones y precios para agregarla con un toque, y lo lleva al carrito o a tu WhatsApp con el mensaje ya armado.`],
+    [Film, 'Películas y series', `Si preguntan “¿dónde veo tal serie?”, consulta en qué plataformas está en Perú (datos de TMDB y JustWatch) y solo recomienda las que tú vendes. El cliente ve un aviso de que el dato es referencial.`],
+    [Gauge, 'Límites', `Cada cliente tiene un número de mensajes al día y tu catálogo un total diario. Al llegar al límite, ${name} avisa con amabilidad y ofrece tu WhatsApp. El consumo de hoy lo ves arriba.`],
+    [MessageCircle, 'Lo que no hace', `No inventa precios ni promociones, no pide contraseñas ni datos personales y no habla de temas ajenos a tu tienda. Si no sabe algo, deriva a tu WhatsApp.`],
+  ]
+  return (
+    <section className={`pcard howlu${open ? ' is-open' : ''}`}>
+      <button className="howlu__head" onClick={toggle} aria-expanded={open}>
+        <span className="howlu__ic"><Bot size={18} /></span>
+        <span><b>Cómo funciona {name}</b><small>Lo que tus clientes pueden esperar del asistente</small></span>
+        <ChevronDown size={18} className="howlu__chev" />
+      </button>
+      {open && (
+        <ul className="howlu__list">
+          {items.map(([Ic, t, d]) => <li key={t}><span><Ic size={17} /></span><div><b>{t}</b><p>{d}</p></div></li>)}
+        </ul>
+      )}
     </section>
   )
 }

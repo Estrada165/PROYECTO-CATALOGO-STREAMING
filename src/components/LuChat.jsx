@@ -169,9 +169,10 @@ export default function LuChat({ cat, slug, idx, optionId, sym, onAdd, onAddComb
                 })()}
                 {m.web && (
                   <div className="lu-web">
-                    <b>Dato tomado de internet</b>
+                    <b>Dato referencial de TMDB y JustWatch</b>
                     <span>Los catálogos de cada plataforma cambian según el país y la fecha. Confírmalo con nosotros antes de comprar.</span>
                     {m.sources?.length > 0 && <span className="lu-web__src">{m.sources.map((x, k) => <a key={k} href={x.uri} target="_blank" rel="noopener noreferrer nofollow">{x.title}</a>)}</span>}
+                    <small className="lu-web__tmdb">Usa la API de TMDB, sin respaldo ni certificación de TMDB.</small>
                   </div>
                 )}
               </div>

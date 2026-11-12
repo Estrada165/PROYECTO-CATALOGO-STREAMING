@@ -639,3 +639,18 @@ body.pdragging { user-select: none; cursor: grabbing; }
 .pcat-icons button { width: 42px; height: 42px; border-radius: var(--r-sm); display: grid; place-items: center; border: 1px solid var(--line-strong); background: var(--surface); color: var(--muted); box-shadow: 0 2px 0 var(--key-edge); transition: all .15s var(--ease); }
 .pcat-icons button:hover { color: var(--ink); }
 .pcat-icons button[aria-checked='true'] { color: var(--accent-text); background: var(--accent-soft); border-color: var(--accent); box-shadow: 0 2px 0 var(--accent); }
+
+/* Asistente: guía "Cómo funciona" */
+.howlu { padding: 0; overflow: hidden; }
+.howlu__head { width: 100%; display: flex; align-items: center; gap: 12px; padding: 16px 18px; text-align: left; }
+.howlu__head > span:nth-child(2) { flex: 1; display: grid; gap: 2px; }
+.howlu__head b { font-size: 15px; }
+.howlu__head small { color: var(--muted); font-size: 13px; }
+.howlu__ic { width: 36px; height: 36px; border-radius: 11px; display: grid; place-items: center; background: var(--accent-soft); color: var(--accent-text); flex-shrink: 0; }
+.howlu__chev { color: var(--muted); transition: transform .2s var(--ease); }
+.howlu.is-open .howlu__chev { transform: rotate(180deg); }
+.howlu__list { list-style: none; margin: 0; padding: 4px 18px 18px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); border-top: 1px solid var(--line); padding-top: 16px; }
+.howlu__list li { display: flex; gap: 11px; align-items: flex-start; }
+.howlu__list li > span { width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--surface-2); color: var(--ink); flex-shrink: 0; }
+.howlu__list b { font-size: 14px; }
+.howlu__list p { margin: 3px 0 0; font-size: 13px; line-height: 1.5; color: var(--muted); }
